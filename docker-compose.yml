@@ -1,0 +1,26 @@
+services:
+  book_catalog:
+    image: book_catalog:3
+    build:
+      context: ./bookcatalog 
+      dockerfile: Dockerfile
+    container_name: book_catalog
+    platform: "linux/amd64" 
+    ports:
+      - "8000:8000"
+    environment:
+      - DATABASE_URL=postgresql://sit722gayani_user:0boQVro1U44FZeqBcBxTp7aQYtEzFxQ9@dpg-crps5356l47c73aolt2g-a.oregon-postgres.render.com/sit722gayani
+    restart: "no"
+
+  inventory_management:
+    image: inventory management:3
+    bulld:
+      context: ./inventory_management
+      dockerfiles: Dockerfile
+  container_name: inventory_management
+  platform: Linux/and64
+  ports:
+    - "8000:8000" 
+  environment:
+    -DATABASE_URL=postgresql://sit722gayani_user:0boQVro1U44FZeqBcBxTp7aQYtEzFxQ9@dpg-crps5356l47c73aolt2g-a.oregon-postgres.render.com/sit722gayani
+  restart: "no"
